@@ -1,7 +1,69 @@
-<p class="text-center">user-signup works!</p>
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <span aria-label="Close" class="close" data-dismiss="alert" type="button">
-
-  <strong>Warning!</strong> Still on beta stage.
-    <span aria-hidden="true">&times;</span></span>
+<div
+  *ngIf="isError"
+  class="alert alert-danger alert-dismissible fade show text-center d-absolute"
+  role="alert"
+>
+  Please Enter Correct Details
 </div>
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img alt="Phone image" class="img-fluid" src="assets/login.svg"/>
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h2 class="p-2 text-center"><strong>Sign up as User</strong></h2>
+        <form #f="ngForm">
+          <label class="form-label" for="email">Name</label>
+          <div class="form-outline mb-4">
+            <input
+              class="form-control form-control-lg"
+              id="name"
+              name="name"
+              ngModel
+              required
+              type="email"
+            />
+          </div>
+          <label class="form-label" for="email">Email address</label>
+          <div class="form-outline mb-4">
+            <input
+              class="form-control form-control-lg"
+              id="email"
+              name="email"
+              ngModel
+              required
+              type="email"
+            />
+          </div>
+          <label class="form-label" for="password">Password</label>
+          <div class="form-outline mb-4">
+            <input
+              class="form-control form-control-lg"
+              id="password"
+              name="password"
+              ngModel
+              required
+              type="password"
+            />
+          </div>
+          <div class="d-flex w-100 justify-content-evenly">
+            <button
+              (click)="onUserSignup(f.value, f)"
+              [disabled]="!f.valid"
+              class="btn btn-primary"
+              type="button"
+            >
+              Sign Up
+            </button>
+          </div>
+          <p class="text-center h4 m-2">Or</p>
+          <div class="d-flex w-100 justify-content-evenly">
+            <a class="btn btn-outline-primary btn-block" href="auth/userLogin"> Sign In </a>
+            <a class="btn btn-outline-primary btn-block" href="/"> Home </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
