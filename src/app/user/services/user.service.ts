@@ -2,14 +2,35 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../../entities/user";
 
+interface UserServiceInterface {
+  url: string;
+  httpClient: HttpClient;
+
+  create(user: User): any;
+
+  authenticate(email: string, password: string): any;
+
+  changePassword(id: number, oldPassword: string, newPassword): any;
+
+  addToCart(medicineId: number, email: string): any;
+
+  removeFromCart(medicineId: number, email: string): any;
+
+  purchaseMedicine(email: string, medicineId: number, quantity: number, totalAmount: number): any;
+
+  purchaseFromCart(email: string, purchases): void;
+
+  getUsers(): any;
+}
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements UserServiceInterface {
 
-  url: string = "http://localhost:8088/api/user";
+  url: string = "http://localhost:8088/api/users";
 
-  constructor(private httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient) {
   }
 
   create(user: User) {
@@ -17,6 +38,7 @@ export class UserService {
   }
 
   authenticate(email: string, password: string) {
+    console.log(email, password);
     return this.httpClient.post(`${this.url}/authenticate`, {"email": email, "password": password});
   }
 
@@ -43,5 +65,8 @@ export class UserService {
   purchaseFromCart(email: string, purchases) {
   }
 
+  getUsers() {
+    return this.httpClient.get(`${this.url}/`);
+  }
 
 }
