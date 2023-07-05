@@ -20,7 +20,7 @@ import {AdminModule} from "./admin/admin.module";
     FormsModule,
     AuthenticationModule,
     UserModule,
-    AdminModule
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

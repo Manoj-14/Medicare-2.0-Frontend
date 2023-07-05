@@ -5,6 +5,8 @@ import {AdminLoginComponent} from "./authentication/components/admin-login/admin
 import {HomeComponent} from "./home/home.component";
 import {UserSignupComponent} from "./authentication/components/user-signup/user-signup.component";
 import {UserLoginComponent} from "./authentication/components/user-login/user-login.component";
+import {AdminComponent} from "./admin/admin.component";
+import {AdminProfileComponent} from "./admin/components/admin-profile/admin-profile.component";
 
 
 const routes: Routes = [{path: "", component: HomeComponent}, {
@@ -15,7 +17,15 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
     {path: "userSignup", component: UserSignupComponent},
     {path: "userLogin", component: UserLoginComponent}
   ]
-}];
+},
+  {
+    path: "admin",
+    component: AdminComponent,
+    children: [
+      {path: "profile", component: AdminProfileComponent}
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
