@@ -1,9 +1,10 @@
 <div
-  *ngIf="isError"
-  class="alert alert-danger alert-dismissible fade show text-center d-absolute"
+  *ngIf="isError || isSuccess"
+  [class]='{"alert-danger":isError,"alert-success":isSuccess}'
+  class="alert alert-dismissible fade show text-center d-absolute"
   role="alert"
 >
-  Please Enter Correct Details
+  {{errMsg}}
 </div>
 <section class="vh-100">
   <div class="container py-5 h-100">
@@ -22,13 +23,13 @@
               name="name"
               ngModel
               required
-              type="email"
             />
           </div>
           <label class="form-label" for="email">Email address</label>
           <div class="form-outline mb-4">
             <input
               class="form-control form-control-lg"
+              email
               id="email"
               name="email"
               ngModel

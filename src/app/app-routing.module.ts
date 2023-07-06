@@ -7,6 +7,7 @@ import {UserSignupComponent} from "./authentication/components/user-signup/user-
 import {UserLoginComponent} from "./authentication/components/user-login/user-login.component";
 import {AdminComponent} from "./admin/admin.component";
 import {AdminProfileComponent} from "./admin/components/admin-profile/admin-profile.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 
 const routes: Routes = [{path: "", component: HomeComponent}, {
@@ -24,6 +25,11 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
     children: [
       {path: "profile", component: AdminProfileComponent}
     ]
+  },
+  {
+    path: "**",
+    pathMatch: 'full',
+    component: PageNotFoundComponent
   }
 ];
 

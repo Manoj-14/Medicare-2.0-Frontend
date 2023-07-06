@@ -11,6 +11,8 @@ import {UserService} from "../../../user/services/user.service";
 export class UserSignupComponent implements OnInit {
 
   isError: boolean = false;
+  isSuccess: boolean = false;
+  errMsg: string = "";
 
   constructor(private userService: UserService) {
   }
@@ -19,16 +21,24 @@ export class UserSignupComponent implements OnInit {
   }
 
   onUserSignup(user: User, f: NgForm) {
-    console.log(user);
+
     this.userService.create(user).subscribe((res) => {
-      console.log(res);
-      f.resetForm();
+
     }, (err) => {
       this.isError = true;
+      this.errMsg = err.error.message;
       setTimeout(() => {
         this.isError = false;
+        this.errMsg = "";
       }, 3000)
-      console.log(err.error.message);
+    }, () => {
+      this.isSuccess = true;
+      this.errMsg = `User account for ${user.name} created successfully please login`;
+      setTimeout(() => {
+        this.isSuccess = false;
+        this.errMsg = "";
+      }, 3000)
     })
+    f.resetForm();
   }
 }
