@@ -1,13 +1,14 @@
 import {HttpClient} from "@angular/common/http";
 import {Admin} from "../../entities/admin";
 import {Injectable} from "@angular/core";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AdminService {
-  url: string = "http://localhost:8088/api/admin";
+  url: string = `${environment.SERVER_URL}/admin`;
 
   constructor(public httpClient: HttpClient) {
   }

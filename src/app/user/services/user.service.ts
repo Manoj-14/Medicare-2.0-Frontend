@@ -1,34 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../../entities/user";
-
-interface UserServiceInterface {
-  url: string;
-  httpClient: HttpClient;
-
-  create(user: User): any;
-
-  authenticate(email: string, password: string): any;
-
-  changePassword(id: number, oldPassword: string, newPassword): any;
-
-  addToCart(medicineId: number, email: string): any;
-
-  removeFromCart(medicineId: number, email: string): any;
-
-  purchaseMedicine(email: string, medicineId: number, quantity: number, totalAmount: number): any;
-
-  purchaseFromCart(email: string, purchases): void;
-
-  getUsers(): any;
-}
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService implements UserServiceInterface {
+export class UserService {
 
-  url: string = "http://localhost:8088/api/users";
+  url: string = `${environment.SERVER_URL}/users`;
 
   constructor(public httpClient: HttpClient) {
   }
