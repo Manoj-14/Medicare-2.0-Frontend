@@ -8,6 +8,7 @@ import {UserLoginComponent} from "./authentication/components/user-login/user-lo
 import {AdminComponent} from "./admin/admin.component";
 import {AdminProfileComponent} from "./admin/components/admin-profile/admin-profile.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {AdminDashboardComponent} from "./admin/components/admin-dashboard/admin-dashboard.component";
 
 
 const routes: Routes = [{path: "", component: HomeComponent}, {
@@ -23,7 +24,8 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
     path: "admin",
     component: AdminComponent,
     children: [
-      {path: "profile", component: AdminProfileComponent}
+      {path: "profile", component: AdminProfileComponent},
+      {path: "dashboard", component: AdminDashboardComponent},
     ]
   },
   {

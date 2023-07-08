@@ -1,0 +1,86 @@
+<div
+  *ngIf="isError || isSuccess"
+  [class]="{'alert-danger':isError , 'alert-success':isSuccess}"
+  class="alert alert-dismissible fade show text-center d-absolute"
+  role="alert"
+>
+  {{alertMsg}}
+</div>
+<section class="vh-100">
+  <div class="container py-2 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h2 class="p-2 text-center"><strong>Add Medicines</strong></h2>
+        <form #f="ngForm">
+          <label class="form-label" for="name">Medicine name</label>
+          <div class="form-outline mb-2">
+            <input
+              class="form-control"
+              id="name"
+              name="name"
+              ngModel
+              required
+              type="text"
+            />
+          </div>
+          <label class="form-label" for="description">Description </label>
+          <div class="form-outline mb-2">
+            <textarea
+              class="form-control"
+              id="description"
+              name="description"
+              ngModel
+              required
+              rows=3
+              type="text"
+            ></textarea>
+          </div>
+          <label class="form-label" for="name">Price</label>
+          <div class="form-outline mb-2">
+            <input
+              class="form-control"
+              id="price"
+              name="price"
+              ngModel
+              required
+              type="number"
+            />
+          </div>
+          <label class="form-label" for="seller">Seller</label>
+          <div class="form-outline mb-2">
+            <input
+              class="form-control"
+              id="seller"
+              name="seller"
+              ngModel
+              required
+              type="text"
+            />
+          </div>
+          <label class="form-label" for="image">Images</label>
+          <div class="form-outline mb-2">
+            <input
+              (change)="handleImage($event)"
+              class="form-control"
+              id="image"
+              name="image"
+              ngModel
+              required
+              type="file"
+            />
+          </div>
+          <div class="d-flex w-100 justify-content-evenly">
+            <button
+              (click)="onMedicine(f.value, f)"
+              [disabled]="!f.valid"
+              class="btn btn-warning w-100"
+              type="button"
+            >
+              Add Medicine
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

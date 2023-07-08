@@ -1,22 +1,8 @@
-:root {
-  --body-color: #e4e9f7;
-  --sidebar-color: #fff;
-  --primary-color: #695cfe;
-  --primary-color-light: #f6f5ff;
-  --toggle-color: #ddd;
-  --text-color: #707070;
-  --popup-color: #70707095;
-  --alert-color: #d0342c;
-  --success-color: #4bb543;
-  --bg-white-color: rgba(255, 255, 255, 0.723);
-
-  --transition: all 0.2s ease;
-}
 
 .indexNav {
   display: flex;
   justify-content: space-between;
-  background-color: #695CFEFF;
+  background-color: var(--blue);
   padding: 1rem 2rem;
   position: fixed;
   width: 100%;
@@ -48,8 +34,8 @@ nav li {
 }
 
 ::selection {
-  background-color: #695CFEFF;
-  color: #fff;
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 .sidebar {
@@ -59,13 +45,14 @@ nav li {
   height: 100%;
   width: 250px;
   padding: 10px 14px;
-  background: #fff;
+  background: var(--background-gray);
   transition: all 0.3s ease;
   z-index: 100;
 }
 
 .sidebar.close {
   width: 88px;
+  /*transform: rotate(180deg);*/
 }
 
 .sidebar li {
@@ -155,11 +142,11 @@ header .image-text .profession {
   position: absolute;
   top: 50%;
   right: -25px;
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%);
   height: 25px;
   width: 25px;
-  background-color: #695CFEFF;
-  color: #fff;
+  background-color: var(--blue);
+  color: var(--white);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -169,12 +156,8 @@ header .image-text .profession {
   transition: all 0.3s ease;
 }
 
-body.dark .sidebar header .toggle {
-  color: #707070;
-}
-
 .sidebar.close .toggle {
-  transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .sidebar .menu {
@@ -183,7 +166,7 @@ body.dark .sidebar header .toggle {
 
 .sidebar li.search-box {
   border-radius: 6px;
-  background-color: #f6f5ff;
+  background-color: var(--background-white);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -193,7 +176,7 @@ body.dark .sidebar header .toggle {
   width: 100%;
   outline: none;
   border: none;
-  background-color: #f6f5ff;
+  background-color: var(--background-white);
   color: #707070;
   border-radius: 6px;
   font-size: 17px;
@@ -207,7 +190,6 @@ body.dark .sidebar header .toggle {
   background-color: transparent;
   display: flex;
   align-items: center;
-  height: 100%;
   width: 100%;
   border-radius: 6px;
   text-decoration: none;
@@ -215,17 +197,12 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar li a:hover {
-  background-color: #695CFEFF;
+  background-color: var(--blue);
 }
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
-  color: #fff;
-}
-
-body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text {
-  color: #707070;
+  color: var(--white);
 }
 
 .sidebar .menu-bar {
@@ -243,30 +220,9 @@ body.dark .sidebar li a:hover .text {
 
 .sidebar .menu-bar .mode {
   border-radius: 6px;
-  background-color: #f6f5ff;
+  background-color: var(--background-white);
   position: relative;
   transition: all 0.3s ease;
-}
-
-.menu-bar .mode .sun-moon {
-  height: 50px;
-  width: 60px;
-}
-
-.mode .sun-moon i {
-  position: absolute;
-}
-
-.mode .sun-moon i.sun {
-  opacity: 0;
-}
-
-body.dark .mode .sun-moon i.sun {
-  opacity: 1;
-}
-
-body.dark .mode .sun-moon i.moon {
-  opacity: 0;
 }
 
 .menu-bar .bottom-content .toggle-switch {
@@ -281,39 +237,13 @@ body.dark .mode .sun-moon i.moon {
   cursor: pointer;
 }
 
-.toggle-switch .switch {
-  position: relative;
-  height: 22px;
-  width: 40px;
-  border-radius: 25px;
-  background-color: #ddd;
-  transition: all 0.3s ease;
-}
-
-.switch::before {
-  content: "";
-  position: absolute;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  background-color: #fff;
-  transition: all 0.3s ease;
-}
-
-body.dark .switch::before {
-  left: 20px;
-}
-
 .home {
   position: absolute;
   top: 0;
   left: 250px;
   height: 100vh;
   width: calc(100% - 250px);
-  background-color: #e4e9f7;
+  background-color: var(--background-light-blue);
   transition: all 0.3s ease;
 }
 
@@ -332,4 +262,14 @@ body.dark .switch::before {
 
 body.dark .home .text {
   color: #707070;
+}
+
+.route-active {
+  background-color: #695cfe;
+  border-radius: 6px;
+}
+
+.route-active a .icon,
+.route-active a .text {
+  color: var(--white);
 }

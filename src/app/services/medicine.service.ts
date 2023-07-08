@@ -21,7 +21,7 @@ export class MedicineService {
     return this.httpClient.get(`${this.url}/${id}`);
   }
 
-  create(medicine: Medicine) {
+  create(medicine: any) {
     return this.httpClient.post(`${this.url}/create`, medicine);
   }
 

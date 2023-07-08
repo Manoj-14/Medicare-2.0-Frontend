@@ -4,17 +4,23 @@ import {AdminProfileComponent} from './components/admin-profile/admin-profile.co
 import {AdminComponent} from './admin.component';
 import {RouterModule} from "@angular/router";
 import {NavigationBarComponent} from './components/navigation-bar/navigation-bar.component';
+import {AdminDashboardComponent} from './components/admin-dashboard/admin-dashboard.component';
+import {AddMedicineComponent} from "./components/admin-dashboard/add-medicine/add-medicine.component";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AdminProfileComponent,
     AdminComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    AdminDashboardComponent,
+    AddMedicineComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
 })
 export class AdminModule {

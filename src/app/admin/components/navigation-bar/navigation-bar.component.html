@@ -2,8 +2,9 @@
   <header>
     <div class="image-text">
       <div class="text logo-text">
-<span class="name">
-</span>
+        <span class="name">
+          Manoj M
+        </span>
       </div>
     </div>
     <i (click)="toggleNav()" class='bx bx-chevron-right toggle'></i>
@@ -20,29 +21,32 @@
       <ul class="menu-links">
         <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
             routerLinkActive="route-active">
-          <a routerLink="/admin/profile">
+          <a routerLink="/admin/dashboard">
             <i class='bx bxs-capsule icon'></i>
-            <span class="text nav-text">View Medicines</span>
+            <span class="text nav-text">Add Medicines</span>
           </a>
         </li>
 
-        <li class="nav-link">
-          <a href="/usrbooking">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
+            routerLinkActive="route-active">
+          <a routerLink="/usrbooking">
             <i class='bx bx-list-ul icon'></i>
-            <span class="text nav-text">Update Medicines</span>
+            <span class="text nav-text">Manage Medicines</span>
           </a>
         </li>
 
-        <li class="nav-link">
-          <a href="/userpaid">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
+            routerLinkActive="route-active">
+          <a routerLink="/userpaid">
             <i class='bx bx-history icon'></i>
             <span class="text nav-text">Purchase History</span>
           </a>
         </li>
 
 
-        <li class="nav-link">
-          <a href="/admin/profile">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
+            routerLinkActive="route-active">
+          <a routerLink="/admin/profile">
             <i class='bx bx-user icon'></i>
             <span class="text nav-text">Profile</span>
           </a>
