@@ -7,3 +7,15 @@
   --background-white: #f6f5ff;
   --background-light-blue: #e4e9f7;
 }
+
+.root-component {
+  margin-left: 90px;
+}
+
+.ng-touched.ng-invalid {
+  border-color: red !important;
+}
+
+.card {
+  cursor: pointer;
+}

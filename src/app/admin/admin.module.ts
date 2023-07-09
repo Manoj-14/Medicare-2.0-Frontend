@@ -7,6 +7,10 @@ import {NavigationBarComponent} from './components/navigation-bar/navigation-bar
 import {AdminDashboardComponent} from './components/admin-dashboard/admin-dashboard.component';
 import {AddMedicineComponent} from "./components/admin-dashboard/add-medicine/add-medicine.component";
 import {FormsModule} from "@angular/forms";
+import { ManageMedicineComponent } from './components/manage-medicine/manage-medicine.component';
+import { PurchaseHistoryComponent } from './components/purchase-history/purchase-history.component';
+import { MedicineComponent } from './components/medicine/medicine.component';
+import { ViewMedicineComponent } from './components/medicine/view-medicine/view-medicine.component';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import {FormsModule} from "@angular/forms";
     AdminComponent,
     NavigationBarComponent,
     AdminDashboardComponent,
-    AddMedicineComponent
+    AddMedicineComponent,
+    ManageMedicineComponent,
+    PurchaseHistoryComponent,
+    MedicineComponent,
+    ViewMedicineComponent
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,8 @@ import {AdminComponent} from "./admin/admin.component";
 import {AdminProfileComponent} from "./admin/components/admin-profile/admin-profile.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AdminDashboardComponent} from "./admin/components/admin-dashboard/admin-dashboard.component";
+import {ManageMedicineComponent} from "./admin/components/manage-medicine/manage-medicine.component";
+import {PurchaseHistoryComponent} from "./admin/components/purchase-history/purchase-history.component";
 
 
 const routes: Routes = [{path: "", component: HomeComponent}, {
@@ -17,7 +19,7 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
   children: [
     {path: "adminLogin", component: AdminLoginComponent},
     {path: "userSignup", component: UserSignupComponent},
-    {path: "userLogin", component: UserLoginComponent}
+    {path: "userLogin", component: UserLoginComponent},
   ]
 },
   {
@@ -26,6 +28,8 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
     children: [
       {path: "profile", component: AdminProfileComponent},
       {path: "dashboard", component: AdminDashboardComponent},
+      {path: "manage-medicine", component: ManageMedicineComponent},
+      {path: "history", component: PurchaseHistoryComponent}
     ]
   },
   {

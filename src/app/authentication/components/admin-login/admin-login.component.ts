@@ -22,7 +22,7 @@ export class AdminLoginComponent implements OnInit {
 
   onAdminLogin(admin: Admin, f: NgForm) {
     this.adminService.authenticate(admin.email, admin.password).subscribe((dbAdmin: Admin) => {
-      console.log(dbAdmin.name);
+      sessionStorage.setItem("admin", String(dbAdmin.id));
       this.router.navigate(["admin/profile"]).then(() => sessionStorage.setItem("admin", String(dbAdmin.id)));
     }, (err) => {
       this.isError = true;
