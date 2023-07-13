@@ -1,0 +1,79 @@
+.home-container {
+  background-color: var(--white);
+}
+
+.home-nav {
+  background: transparent;
+  color: var(--background-white);
+  height: 60px;
+  z-index: 100;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+.home-nav li {
+  list-style: none;
+}
+
+.home-nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-items {
+  display: flex;
+  gap: 2rem;
+}
+
+.circle1,
+.circle2 {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 197, 82, 0.9),
+    rgba(255, 197, 82, 0.1)
+  );
+  height: 10rem;
+  width: 10rem;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  transform: perspective(1000px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.27);
+  filter: drop-shadow(.9rem .9rem 1rem rgba(255, 197, 82, 0.9));
+}
+
+.circle1 {
+  top: 10%;
+  left: 10%;
+  transform: translate(-10%, -10%);
+}
+
+.circle2 {
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, 100%) rotate(180deg);
+}
+
+header {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+header #title {
+  font-size: calc(5rem + 2vw);
+  color: #FF5096;
+  filter: drop-shadow(.9rem .9rem 8rem rgba(255, 80, 150, 0.89));
+  font-family: 'Trirong', serif !important;
+}
+
+.bx {
+  margin: 2px;
+}
+
+.nav-item, .nav-item a i {
+  color: #FF8A66;
+}
+
