@@ -8,7 +8,7 @@ import {FormsModule} from "@angular/forms";
 import {AuthenticationModule} from "./authentication/authentication.module";
 import {UserModule} from "./user/user.module";
 import {AdminModule} from "./admin/admin.module";
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [

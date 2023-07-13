@@ -81,7 +81,7 @@ nav li {
 
 .sidebar .text,
 .sidebar .icon {
-  color: #707070;
+  color: var(--color-gary);
   transition: var(--transition);
 }
 
@@ -177,7 +177,7 @@ header .image-text .profession {
   outline: none;
   border: none;
   background-color: var(--background-white);
-  color: #707070;
+  color: var(--color-gary);
   border-radius: 6px;
   font-size: 17px;
   font-weight: 500;
@@ -250,7 +250,7 @@ header .image-text .profession {
 .home .text {
   font-size: 30px;
   font-weight: 500;
-  color: #707070;
+  color: var(--color-gary);
   padding: 12px 60px;
 }
 
@@ -261,7 +261,7 @@ header .image-text .profession {
 }
 
 body.dark .home .text {
-  color: #707070;
+  color: var(--color-gary);
 }
 
 .route-active {

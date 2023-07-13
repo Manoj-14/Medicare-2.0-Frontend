@@ -1,21 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Trirong:wght@300;400;500;700;800&display=swap');
+
 :root {
   --transition: all 0.2s ease;
-  --blue: #695CFEFF;
+  --blue: rgb(105, 92, 254);
   --white: #fff;
   --background-gray: #efefef;
   --background-white: #f6f5ff;
   --background-light-blue: #e4e9f7;
+  --alert-red: rgba(234, 68, 68, 0.94);
+  --color-gary: #707070;
+}
+
+* {
+  color: var(--color-gary);
+  font-family: "Poppins", sans-serif !important;
 }
 
 .root-component {
   margin-left: 90px;
 }
 
-.ng-touched.ng-invalid {
-  border-color: red !important;
+form .ng-touched.ng-invalid {
+  border-color: var(--alert-red) !important;
+  animation-iteration-count: 2;
+  animation-name: invalidInput;
+  animation-duration: 250ms;
+}
+
+@keyframes invalidInput {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 .card {
   cursor: pointer;
+}
+
+.required {
+  color: var(--alert-red);
+  font-weight: bolder;
+}
+
+.title {
+  color: var(--color-gary);
 }

@@ -19,7 +19,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   onUserLogin(user: User, f: NgForm) {
-    this.userService.authenticate(user.email, user.password).subscribe((dbUser: User) => {
+    this.userService.authenticate(user.email, user.password).subscribe((dbUser) => {
       console.log(dbUser);
     }, (error) => {
       console.log(error.error.message);
