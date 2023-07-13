@@ -15,20 +15,11 @@ export class AddMedicineComponent implements OnInit {
   alertMsg: string = ""
   medicineImage: File | null = null;
 
-  constructor(private httpClient: HttpClient, private medicineService: MedicineService) {
+  constructor(private medicineService: MedicineService) {
   }
 
   handleImage(event: any) {
     this.medicineImage = event.target.files[0];
-    const formData = new FormData();
-    formData.append('file', this.medicineImage, this.medicineImage.name);
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    this.httpClient.post("http://localhost:8088/api/medicines/create", formData, {headers}).subscribe((res) => {
-      console.log(res);
-    }, error => {
-      console.log(error);
-    })
   }
 
   ngOnInit(): void {
@@ -41,11 +32,21 @@ export class AddMedicineComponent implements OnInit {
     formData.append("price", value.price);
     formData.append("seller", value.seller);
     formData.append("image", this.medicineImage);
-    console.log(value);
-    this.medicineService.create(formData).subscribe((resp: Medicine) => {
-      console.log(resp);
+    this.medicineService.create(formData).subscribe((dbMedicine: Medicine) => {
+      this.isSuccess = true;
+      this.alertMsg = dbMedicine.name + " Medicine is added successfully"
+      console.log(dbMedicine);
+      setTimeout(() => {
+        this.isSuccess = false;
+        this.alertMsg = ""
+      }, 5000)
     }, (err) => {
-      console.log(err);
+      this.isError = true;
+      this.alertMsg = err.error.message
+      setTimeout(() => {
+        this.isError = false;
+        this.alertMsg = ""
+      }, 5000)
     })
   }
 }

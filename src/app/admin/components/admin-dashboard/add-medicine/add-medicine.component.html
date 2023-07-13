@@ -9,10 +9,10 @@
 <section class="vh-100">
   <div class="container py-2 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <h2 class="p-2 text-center"><strong>Add Medicines</strong></h2>
+      <div class="col-md-12 col-lg-12 col-xl-12 offset-xl-1">
+        <h2 class="p-2 text-center title"><strong>Add Medicines</strong></h2>
         <form #f="ngForm">
-          <label class="form-label" for="name">Medicine name</label>
+          <label class="form-label" for="name">Medicine name<span class="required">*</span></label>
           <div class="form-outline mb-2">
             <input
               class="form-control"
@@ -23,7 +23,7 @@
               type="text"
             />
           </div>
-          <label class="form-label" for="description">Description </label>
+          <label class="form-label" for="description">Description <span class="required">*</span></label>
           <div class="form-outline mb-2">
             <textarea
               class="form-control"
@@ -35,7 +35,7 @@
               type="text"
             ></textarea>
           </div>
-          <label class="form-label" for="name">Price</label>
+          <label class="form-label" for="name">Price <span class="required">*</span></label>
           <div class="form-outline mb-2">
             <input
               class="form-control"
@@ -46,7 +46,7 @@
               type="number"
             />
           </div>
-          <label class="form-label" for="seller">Seller</label>
+          <label class="form-label" for="seller">Seller <span class="required">*</span></label>
           <div class="form-outline mb-2">
             <input
               class="form-control"
@@ -57,10 +57,11 @@
               type="text"
             />
           </div>
-          <label class="form-label" for="image">Images</label>
+          <label class="form-label" for="image">Images <span class="required">*</span></label>
           <div class="form-outline mb-2">
             <input
               (change)="handleImage($event)"
+              accept="image/*"
               class="form-control"
               id="image"
               name="image"
