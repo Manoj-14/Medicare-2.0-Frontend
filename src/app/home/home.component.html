@@ -1,9 +1,9 @@
 <div class="home-container">
-  <nav class="home-nav position-fixed top-0 d-flex align-items-center justify-content-between w-100">
+  <nav class="home-nav position-fixed d-flex align-items-center justify-content-between w-100">
     <div class="logo">
       <h3>Medicare</h3>
     </div>
-    <div class="d-sm-none d-md-flex d-lg-flex d-xl-flex d-s">
+    <div class="d-sm-none d-md-flex d-lg-flex d-xl-flex d-s d-none">
       <ul class="nav-items">
         <div>
           <li class="nav-item">
@@ -15,7 +15,7 @@
         </div>
         <div>
           <li class="nav-item">
-            <a href="">
+            <a href="#about">
               <i class="bx bx-info-circle"></i>
               About Us
             </a>
@@ -43,7 +43,7 @@
         </div>
       </ul>
     </div>
-    <div class="d-lg-none d-md-none d-xl-none d-sm-block">
+    <div class="d-lg-none d-md-none d-xl-none d-sm-block d-block">
       <i class="bx bx-menu icon"></i>
     </div>
   </nav>
@@ -53,27 +53,64 @@
   </div>
   <header>
     <div>
-      <h3 id="title">Medicare</h3>
+      <h1 class="sparkles" id="title">Medicare</h1>
       <h6 id="sub-title">Buy your medicines instantly with us....!</h6>
-      <a class="btn btn-block btn-primary" href="/auth/userSignup">Start your journey here</a>
+      <a class="btn btn-block btn-primary text-light" href="/auth/userSignup">Start your journey here</a>
     </div>
   </header>
   <main>
-    <div>
-      <div>
-
+    <div class="main-div mx-5" id="about">
+      <div class="about-div">
+        <h3>About Us</h3>
+        <div class="row flex-row">
+          <div class="col-sm-12 col-lg-7 col-md-7">
+            <p>
+              <span>Mission:</span> We are committed to providing our users with a convenient, user-friendly, and secure
+              way to purchase medicines. We are dedicated to providing our users with the best possible experience.
+            </p>
+            <p>
+              <span>Vision:</span> We envision a world where everyone has access to affordable healthcare. We believe
+              that
+              our website is making it easier for people to access the healthcare they need.
+            </p>
+            <div>
+              <span>Values:</span>
+              <ul>
+                <li><span>Convenience:</span> We want our users to be able to order medicines quickly and easily.
+                </li>
+                <li><span>User-friendliness:</span> We want our website to be easy to use for everyone.
+                </li>
+                <li><span>Security:</span> We want our users' personal information to be secure.
+                </li>
+                <li><span>Affordability:</span> We want our services to be affordable for everyone.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <aside
+            class="col-md-5 col-lg-5 col-sm-6 col-6 col-xl-5 py-2 ml-20 my-5 d-none d-lg-flex d-md-flex d-sm-none d-xl-flex justify-content-center align-items-centers position-relative "
+            id="about-img">
+            <img alt="ayurvedic-img"
+                 class="position-absolute left-0 start-0"
+                 src="assets/images/photomix-company.jpg"
+                 srcset="">
+            <img alt="chokniti-khongchum"
+                 class="position-absolute bottom-0 end-0"
+                 src="assets/images/chokniti-khongchum.jpg"
+                 srcset="">
+          </aside>
+        </div>
       </div>
-      <aside>
-
-      </aside>
+      <div class="p-4" id="team-quote">
+        <p class="p-0 m-0 text-center">"Our team is made up of experienced professionals who are dedicated to providing
+          our users with
+          the
+          best
+          possible experience. We are constantly working to improve our website and add new features."</p>
+      </div>
     </div>
     <div>
-      <div>
-
-      </div>
-      <aside>
-
-      </aside>
+      
     </div>
   </main>
   <footer>
