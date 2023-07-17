@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MedicineService} from "../../../services/medicine.service";
+import {Medicine} from "../../../entities/medicine";
 
 @Component({
   selector: 'app-manage-medicine',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageMedicineComponent implements OnInit {
 
-  constructor() { }
+  medicines: Medicine[];
+
+  constructor(private readonly medicineService: MedicineService) {
+    this.fetchMedicine();
+  }
 
   ngOnInit(): void {
   }
+
+  fetchMedicine() {
+    this.medicineService.getMedicines().subscribe((dbMedicines: Medicine[]) => {
+      this.medicines = dbMedicines;
+    })
+  }
+
 
 }

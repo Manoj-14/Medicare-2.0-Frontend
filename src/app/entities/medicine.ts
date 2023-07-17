@@ -1,3 +1,5 @@
+import {SafeUrl} from "@angular/platform-browser";
+
 export interface Medicine {
   id?: number;
   name: string;
@@ -11,5 +13,6 @@ export interface Medicine {
 export interface Image {
   fileName: string;
   contentType: string;
-  content: Uint8Array;
+  content: string;
+  safeURL?: SafeUrl
 }

@@ -40,6 +40,7 @@ export class AddMedicineComponent implements OnInit {
         this.isSuccess = false;
         this.alertMsg = ""
       }, 5000)
+      f.resetForm();
     }, (err) => {
       this.isError = true;
       this.alertMsg = err.error.message

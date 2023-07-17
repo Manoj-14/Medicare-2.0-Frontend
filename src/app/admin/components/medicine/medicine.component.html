@@ -1,14 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Medicine name</h3>
-    <small class="text-sm-start">Medicine seller</small>
+    <h3 class="card-title">{{medicine.name}}</h3>
+    <small class="text-sm-start">{{medicine.seller}}</small>
   </div>
   <div class="card-body">
-    <img alt="my-image" class="card-img-top" src="../../../../assets/images/login.svg" srcset="">
-    <p>Lorem epsom ewafsdzcxn sdazxn esdukbn efsc ioine fiubef iuha sdfiub frisb we imsob dubf iubdf eihf eih ih oief
-      oijf fnoinf oiewh oihf oewi</p>
+    <img [src]="medicine.image.content" alt="my-image" class="card-img-top" srcset="">
     <div>
-      <i class="bx bx-rupee icon">123</i>
+      <i>{{"123" | currency : "USD"}}</i>
     </div>
   </div>
   <div class="card-footer">

@@ -1,7 +1,7 @@
 <div class="root-component">
   <div class="row m-0 mt-2">
-    <div *ngFor="let i of [1,2,3,4]" class="mt-2 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-      <app-medicine></app-medicine>
+    <div *ngFor="let dbMedicine of medicines" class="mt-2 col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+      <app-medicine [medicine]="dbMedicine"></app-medicine>
     </div>
   </div>
 </div>

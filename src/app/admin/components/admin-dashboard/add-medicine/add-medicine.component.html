@@ -1,14 +1,14 @@
-<div
-  *ngIf="isError || isSuccess"
-  [class]="{'alert-danger':isError , 'alert-success':isSuccess}"
-  class="alert alert-dismissible fade show text-center d-absolute"
-  role="alert"
->
-  {{alertMsg}}
-</div>
 <section class="vh-100">
   <div class="container py-2 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
+      <div
+        *ngIf="isError || isSuccess"
+        [class]="{'alert-danger':isError , 'alert-success':isSuccess}"
+        class="alert alert-dismissible fade show text-center d-absolute"
+        role="alert"
+      >
+        {{alertMsg}}
+      </div>
       <div class="col-md-12 col-lg-12 col-xl-12 offset-xl-1">
         <h2 class="p-2 text-center title"><strong>Add Medicines</strong></h2>
         <form #f="ngForm">
