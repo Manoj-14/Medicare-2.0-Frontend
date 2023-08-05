@@ -32,6 +32,7 @@ export class AddMedicineComponent implements OnInit {
     formData.append("price", value.price);
     formData.append("seller", value.seller);
     formData.append("image", this.medicineImage);
+    formData.append("quantity", value.quantity);
     this.medicineService.create(formData).subscribe((dbMedicine: Medicine) => {
       this.isSuccess = true;
       this.alertMsg = dbMedicine.name + " Medicine is added successfully"

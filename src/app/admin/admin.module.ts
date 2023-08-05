@@ -7,10 +7,14 @@ import {NavigationBarComponent} from './components/navigation-bar/navigation-bar
 import {AdminDashboardComponent} from './components/admin-dashboard/admin-dashboard.component';
 import {AddMedicineComponent} from "./components/admin-dashboard/add-medicine/add-medicine.component";
 import {FormsModule} from "@angular/forms";
-import { ManageMedicineComponent } from './components/manage-medicine/manage-medicine.component';
-import { PurchaseHistoryComponent } from './components/purchase-history/purchase-history.component';
-import { MedicineComponent } from './components/medicine/medicine.component';
-import { ViewMedicineComponent } from './components/medicine/view-medicine/view-medicine.component';
+import {ManageMedicineComponent} from './components/manage-medicine/manage-medicine.component';
+import {PurchaseHistoryComponent} from './components/purchase-history/purchase-history.component';
+import {MedicineComponent} from './components/medicine/medicine.component';
+import {ViewMedicineComponent} from './components/medicine/view-medicine/view-medicine.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from "@angular/material/button";
+import {UpdateMedicineComponent} from './components/medicine/update-medicine/update-medicine.component';
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -23,12 +27,16 @@ import { ViewMedicineComponent } from './components/medicine/view-medicine/view-
     ManageMedicineComponent,
     PurchaseHistoryComponent,
     MedicineComponent,
-    ViewMedicineComponent
+    ViewMedicineComponent,
+    UpdateMedicineComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule
   ],
 })
 export class AdminModule {

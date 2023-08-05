@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MedicineService} from "../../../services/medicine.service";
 import {Medicine} from "../../../entities/medicine";
+import {MatDialog} from "@angular/material/dialog";
+import {ViewMedicineComponent} from "../medicine/view-medicine/view-medicine.component";
 
 @Component({
   selector: 'app-manage-medicine',
@@ -11,7 +13,7 @@ export class ManageMedicineComponent implements OnInit {
 
   medicines: Medicine[];
 
-  constructor(private readonly medicineService: MedicineService) {
+  constructor(private readonly medicineService: MedicineService, private dialog: MatDialog) {
     this.fetchMedicine();
   }
 
@@ -24,5 +26,10 @@ export class ManageMedicineComponent implements OnInit {
     })
   }
 
+  onUpdated() {
+    console.log("updated");
+    this.fetchMedicine();
+  }
+  
 
 }

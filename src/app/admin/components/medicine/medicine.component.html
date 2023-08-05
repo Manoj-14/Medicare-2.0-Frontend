@@ -1,19 +1,49 @@
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">{{medicine.name}}</h3>
-    <small class="text-sm-start">{{medicine.seller}}</small>
-  </div>
-  <div class="card-body">
-    <img [src]="medicine.image.content" alt="my-image" class="card-img-top" srcset="">
-    <div>
-      <i>{{"123" | currency : "USD"}}</i>
+<div class="card medicine-card">
+  <div>
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h3 class="card-title">{{medicine.name | uppercase}}</h3>
+          <small class="text-sm-start">{{medicine.seller}}</small>
+        </div>
+        <div class="form-check form-switch">
+          <input
+            (click)="activeBtn()"
+            [(ngModel)]="medicine.active"
+            [checked]="medicine.active"
+            class="form-check-input"
+            id="{{ medicine.id }}"
+            type="checkbox"
+          />
+          <label
+            *ngIf="medicine.active"
+            class="custom-control-label"
+            for="{{ medicine.id }}"
+          >Enabled</label
+          >
+          <label
+            *ngIf="!medicine.active"
+            class="custom-control-label"
+            for="{{ medicine.id }}"
+          >Disabled</label
+          >
+        </div>
+      </div>
+    </div>
+    <div (click)="viewMed()" class="card-body medicine-image-div">
+      <div>
+        <img [alt]="medicine.name" [src]="medicine.image.content" class="card-img-top medicine-image" srcset="">
+      </div>
+      <div>
+        <i>{{medicine.price | currency : "USD"}}</i>
+      </div>
     </div>
   </div>
-  <div class="card-footer">
-    <button class="card-link btn btn-outline-primary ">
+  <div *ngIf="btnLink" class="card-footer">
+    <button (click)="updatePopUp()" class="card-link btn btn-outline-primary ">
       <i class="icon bx bx-pencil"></i>Modify
     </button>
-    <button class="card-link btn btn-outline-danger">
+    <button (click)="deleteMedicine()" class="card-link btn btn-outline-danger">
       <i class="icon bx bx-minus"></i>Delete
     </button>
   </div>

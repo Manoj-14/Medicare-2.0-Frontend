@@ -1,6 +1,10 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Medicine} from "../../../entities/medicine";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {MedicineService} from "../../../services/medicine.service";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ViewMedicineComponent} from "./view-medicine/view-medicine.component";
+import {UpdateMedicineComponent} from "./update-medicine/update-medicine.component";
 
 @Component({
   selector: 'app-medicine',
@@ -13,7 +17,14 @@ export class MedicineComponent implements OnInit, OnChanges {
   medicine: Medicine;
   imageURL: SafeUrl;
 
-  constructor(private sanitizer: DomSanitizer) {
+  @Input()
+  btnLink: boolean;
+
+  @Output()
+  update = new EventEmitter<{ updated: boolean; }>();
+
+  constructor(private sanitizer: DomSanitizer, private readonly medicineService: MedicineService, private dialog: MatDialog) {
+
   }
 
   ngOnInit(): void {
@@ -34,4 +45,49 @@ export class MedicineComponent implements OnInit, OnChanges {
   }
 
 
+  deleteMedicine() {
+    this.medicineService.delete(this.medicine.id).subscribe((res) => {
+      this.update.emit({updated: true});
+    }, (err) => {
+      console.log(err.error.message);
+    })
+  }
+
+  updateMedicine() {
+    this.update.emit({updated: true});
+  }
+
+  viewMed() {
+    this.dialog.open(ViewMedicineComponent, {
+      width: "100vw",
+      height: "75%",
+      hasBackdrop: true,
+      closeOnNavigation: true,
+      panelClass: "dialog-container",
+      data: {
+        message: "Error!!!"
+      }
+    });
+  }
+
+  updatePopUp() {
+    this.dialog.open(UpdateMedicineComponent, {
+      width: "100vw",
+      height: "90%",
+      hasBackdrop: true,
+      closeOnNavigation: true,
+      data: this.medicine
+    })
+    this.dialog.afterAllClosed.subscribe((res) => {
+      this.update.emit({updated: true});
+      console.log(res);
+    })
+  }
+
+  activeBtn() {
+    this.medicineService.enableOrDisable(this.medicine.id).subscribe((res) => {
+      console.log(res);
+    })
+
+  }
 }

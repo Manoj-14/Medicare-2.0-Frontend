@@ -1,0 +1,125 @@
+<section class="">
+  <div class="h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-6 col-lg-8 col-xl-8 col-12">
+        <h2 class="p-2 text-center title"><strong>Update Medicines</strong></h2>
+        <form #f="ngForm">
+          <div>
+
+            <div>
+              <label class="form-label" for="name">Medicine name<span class="required">*</span></label>
+              <div class="form-outline mb-2">
+                <input
+                  [(ngModel)]="medicine.name"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  ngModel
+                  required
+                  type="text"
+                />
+              </div>
+              <div class="custom-control custom-switch">
+                <input
+                  (click)="activeBtn()"
+                  [(ngModel)]="medicine.active"
+                  [checked]="medicine.active"
+                  class="custom-control-input"
+                  id="{{ medicine.id }}"
+                  type="checkbox"
+                />
+                <label
+                  *ngIf="medicine.active"
+                  class="custom-control-label"
+                  for="{{ medicine.id }}"
+                >Enabled</label
+                >
+                <label
+                  *ngIf="!medicine.active"
+                  class="custom-control-label"
+                  for="{{ medicine.id }}"
+                >Disabled</label
+                >
+              </div>
+            </div>
+          </div>
+          <label class="form-label" for="description">Description <span class="required">*</span></label>
+          <div class="form-outline mb-2">
+            <textarea
+              [(ngModel)]="medicine.description"
+              class="form-control"
+              id="description"
+              name="description"
+              ngModel
+              required
+              rows=3
+              type="text"
+            ></textarea>
+          </div>
+          <label class="form-label" for="quantity">Quantity <span class="required">*</span></label>
+          <div class="form-outline mb-2">
+            <input
+              [(ngModel)]="medicine.quantity"
+              class="form-control"
+              id="quantity"
+              name="quantity"
+              ngModel
+              required
+              type="number"
+            />
+          </div>
+          <label class="form-label" for="name">Price <span class="required">*</span></label>
+          <div class="form-outline mb-2">
+            <input
+              [(ngModel)]="medicine.price"
+              class="form-control"
+              id="price"
+              name="price"
+              ngModel
+              required
+              type="number"
+            />
+          </div>
+          <label class="form-label" for="seller">Seller <span class="required">*</span></label>
+          <div class="form-outline mb-2">
+            <input
+              [(ngModel)]="medicine.seller"
+              class="form-control"
+              id="seller"
+              name="seller"
+              ngModel
+              required
+              type="text"
+            />
+          </div>
+          <!--          <label class="form-label" for="image">Images <span class="required">*</span></label>-->
+          <!--          <div class="form-outline mb-2">-->
+          <!--            <input-->
+          <!--              [(ngModel)]="medicine.image.content"-->
+          <!--              accept="image/*"-->
+          <!--              class="form-control"-->
+          <!--              id="image"-->
+          <!--              name="image"-->
+          <!--              ngModel-->
+          <!--              required-->
+          <!--              type="file"-->
+          <!--            />-->
+          <!--          </div>-->
+          <div class="d-flex w-100 justify-content-evenly">
+            <button
+              (click)="updateMedicine()"
+              [disabled]="!f.valid"
+              class="btn btn-warning w-100"
+              type="button"
+            >
+              Update Medicine
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-4 d-none d-sm-none d-lg-block d-md-block">
+        <app-medicine [btnLink]="false" [medicine]="medicine"></app-medicine>
+      </div>
+    </div>
+  </div>
+</section>

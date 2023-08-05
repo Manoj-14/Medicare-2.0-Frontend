@@ -11,6 +11,7 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AdminDashboardComponent} from "./admin/components/admin-dashboard/admin-dashboard.component";
 import {ManageMedicineComponent} from "./admin/components/manage-medicine/manage-medicine.component";
 import {PurchaseHistoryComponent} from "./admin/components/purchase-history/purchase-history.component";
+import {ViewMedicineComponent} from "./admin/components/medicine/view-medicine/view-medicine.component";
 
 
 const routes: Routes = [{path: "", component: HomeComponent}, {
@@ -28,7 +29,11 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
     children: [
       {path: "profile", component: AdminProfileComponent},
       {path: "dashboard", component: AdminDashboardComponent},
-      {path: "manage-medicine", component: ManageMedicineComponent},
+      {
+        path: "manage-medicine", component: ManageMedicineComponent, children: [
+          {path: "medicine/:id", component: ViewMedicineComponent}
+        ]
+      },
       {path: "history", component: PurchaseHistoryComponent}
     ]
   },
