@@ -12,6 +12,7 @@
   --alert-red: rgba(234, 68, 68, 0.94);
   --alert-green: #32FF32;
   --color-gary: #707070;
+  --admin-bg: #ffc107;
 }
 
 * {
