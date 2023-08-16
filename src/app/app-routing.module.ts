@@ -12,6 +12,11 @@ import {AdminDashboardComponent} from "./admin/components/admin-dashboard/admin-
 import {ManageMedicineComponent} from "./admin/components/manage-medicine/manage-medicine.component";
 import {PurchaseHistoryComponent} from "./admin/components/purchase-history/purchase-history.component";
 import {ViewMedicineComponent} from "./admin/components/medicine/view-medicine/view-medicine.component";
+import {UserComponent} from "./user/user.component";
+import {UserHomeComponent} from "./user/components/user-home/user-home.component";
+import {UserCartComponent} from "./user/components/user-cart/user-cart.component";
+import {UserHistoryComponent} from "./user/components/user-history/user-history.component";
+import {UserProfileComponent} from "./user/components/user-profile/user-profile.component";
 
 
 const routes: Routes = [{path: "", component: HomeComponent}, {
@@ -30,11 +35,29 @@ const routes: Routes = [{path: "", component: HomeComponent}, {
       {path: "profile", component: AdminProfileComponent},
       {path: "dashboard", component: AdminDashboardComponent},
       {
-        path: "manage-medicine", component: ManageMedicineComponent, children: [
-          {path: "medicine/:id", component: ViewMedicineComponent}
-        ]
+        path: "manage-medicine", component: ManageMedicineComponent
       },
-      {path: "history", component: PurchaseHistoryComponent}
+      {
+        path: "history", component: PurchaseHistoryComponent
+      }
+    ]
+  },
+  {
+    path: "user",
+    component: UserComponent,
+    children: [
+      {
+        path: "home", component: UserHomeComponent
+      },
+      {
+        path: "cart", component: UserCartComponent
+      },
+      {
+        path: "history", component: UserHistoryComponent
+      },
+      {
+        path: "profile", component: UserProfileComponent
+      }
     ]
   },
   {

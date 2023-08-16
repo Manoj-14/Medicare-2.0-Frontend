@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor() { }
+  isClose: boolean = true;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  toggleNav() {
+    this.isClose = !this.isClose;
   }
 
 }
