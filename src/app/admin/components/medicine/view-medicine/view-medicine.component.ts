@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {Medicine} from "../../../../entities/medicine";
 
 @Component({
   selector: 'app-view-medicine',
@@ -10,15 +11,14 @@ import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog
 export class ViewMedicineComponent implements OnInit {
 
   id: any;
+  medicine: Medicine;
 
-  constructor(private activatedRouters: ActivatedRoute, private dialogRef: MatDialogRef<ViewMedicineComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private activatedRouters: ActivatedRoute, private dialogRef: MatDialogRef<ViewMedicineComponent>, @Inject(MAT_DIALOG_DATA) public data: Medicine) {
+    this.medicine = this.data;
+    console.log(this.medicine);
   }
 
   ngOnInit(): void {
-    this.activatedRouters.paramMap.subscribe(params => {
-      console.log(params.get("id"));
-      console.log(this.data);
-    })
   }
 
   public closeMe() {

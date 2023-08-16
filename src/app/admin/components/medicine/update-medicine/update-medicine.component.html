@@ -19,28 +19,6 @@
                   type="text"
                 />
               </div>
-              <div class="custom-control custom-switch">
-                <input
-                  (click)="activeBtn()"
-                  [(ngModel)]="medicine.active"
-                  [checked]="medicine.active"
-                  class="custom-control-input"
-                  id="{{ medicine.id }}"
-                  type="checkbox"
-                />
-                <label
-                  *ngIf="medicine.active"
-                  class="custom-control-label"
-                  for="{{ medicine.id }}"
-                >Enabled</label
-                >
-                <label
-                  *ngIf="!medicine.active"
-                  class="custom-control-label"
-                  for="{{ medicine.id }}"
-                >Disabled</label
-                >
-              </div>
             </div>
           </div>
           <label class="form-label" for="description">Description <span class="required">*</span></label>

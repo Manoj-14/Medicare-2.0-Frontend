@@ -10,6 +10,7 @@
   --background-white: #f6f5ff;
   --background-light-blue: #e4e9f7;
   --alert-red: rgba(234, 68, 68, 0.94);
+  --alert-green: #32FF32;
   --color-gary: #707070;
 }
 
@@ -24,6 +25,14 @@
 
 form .ng-touched.ng-invalid {
   border-color: var(--alert-red) !important;
+  animation-iteration-count: 2;
+  animation-name: invalidInput;
+  animation-duration: 250ms;
+}
+
+form .ng-touched.ng-invalid.content + small {
+  color: var(--alert-red) !important;
+  font-weight: bold;
   animation-iteration-count: 2;
   animation-name: invalidInput;
   animation-duration: 250ms;

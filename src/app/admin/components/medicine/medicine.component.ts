@@ -64,9 +64,7 @@ export class MedicineComponent implements OnInit, OnChanges {
       hasBackdrop: true,
       closeOnNavigation: true,
       panelClass: "dialog-container",
-      data: {
-        message: "Error!!!"
-      }
+      data: this.medicine
     });
   }
 
@@ -88,6 +86,5 @@ export class MedicineComponent implements OnInit, OnChanges {
     this.medicineService.enableOrDisable(this.medicine.id).subscribe((res) => {
       console.log(res);
     })
-
   }
 }

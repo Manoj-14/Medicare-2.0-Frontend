@@ -26,14 +26,20 @@
           <label class="form-label" for="description">Description <span class="required">*</span></label>
           <div class="form-outline mb-2">
             <textarea
-              class="form-control"
+              (keyup)="updateContentLen()"
+              [(ngModel)]="content"
+              class="form-control content"
               id="description"
+              minlength="200"
               name="description"
               ngModel
               required
               rows=3
               type="text"
             ></textarea>
+            <small class="form-text text-muted"
+            >Min: {{ contentLen }}/200 words</small
+            >
           </div>
           <label class="form-label" for="quantity">Quantity <span class="required">*</span></label>
           <div class="form-outline mb-2">
