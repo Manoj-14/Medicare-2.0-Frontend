@@ -34,7 +34,7 @@
               name="description"
               ngModel
               required
-              rows=3
+              rows=2
               type="text"
             ></textarea>
             <small class="form-text text-muted"
@@ -91,7 +91,7 @@
             <button
               (click)="onMedicine(f.value, f)"
               [disabled]="!f.valid"
-              class="btn btn-warning w-100"
+              class="btn btn-warning w-100 add-medicine-btn"
               type="button"
             >
               Add Medicine

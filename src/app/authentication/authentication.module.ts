@@ -22,7 +22,7 @@ import {AdminModule} from "../admin/admin.module";
     RouterModule,
     FormsModule,
     UserModule,
-    AdminModule
+    AdminModule,
   ]
 })
 export class AuthenticationModule {
