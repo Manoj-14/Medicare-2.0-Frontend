@@ -1,0 +1,142 @@
+###
+GET http://localhost:8088/api/users
+
+###
+POST http://localhost:8088/api/users/create
+Content-Type: application/json
+
+{
+  "name" : "Manoj M",
+  "email":"manoj@gmail.com",
+  "password" : "Manoj@14"
+}
+
+###
+GET http://localhost:8088/api/users/1
+
+###
+POST http://localhost:8088/api/users/authenticate
+Content-Type: application/json
+
+{
+  "email": "manoj@gmail.com",
+  "password": "Manoj@14"
+}
+
+###
+PUT http://localhost:8088/api/users/changePassword/1
+Content-Type: application/json
+
+{
+  "oldPassword": "Manoj@14",
+  "newPassword": "ManojM@14"
+}
+
+###
+POST http://localhost:8088/api/admin/create
+Content-Type: application/json
+
+{
+  "name": "Admin",
+  "email": "admin@gmail.com",
+  "password": "Admin@123"
+}
+
+###
+GET http://localhost:8088/api/admin/1
+
+###
+POST http://localhost:8088/api/admin/authenticate/1
+Content-Type: application/json
+
+{
+  "password": "Admin@123"
+}
+
+###
+GET http://localhost:8088/api/medicines
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5vakBnbWFpbC5jb20iLCJpYXQiOjE2OTM0MDI4ODIsImV4cCI6MTY5MzQzODg4Mn0.-kTIlQOHJbHGhGzOCQjS7Crd1bGcp1zniUDOByen8n4
+
+###
+POST http://localhost:8088/api/medicines/create
+Content-Type: application/json
+
+{
+  "name": "MedName",
+  "price": 20.00,
+  "seller": "MedSel",
+  "description": "Desc",
+  "image": {
+    "fileName":"Medicine",
+    "contentType": "image/png",
+    "content": null
+  }
+}
+
+###
+PUT http://localhost:8088/api/medicines/update
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "NewMedName",
+  "price": 50.00,
+  "seller": "MedSel",
+  "description": "Desc"
+}
+
+###
+GET http://localhost:8088/api/medicines/1
+
+###
+PUT http://localhost:8088/api/medicines/isenabled?enable=1
+
+###
+DELETE http://localhost:8088/api/medicines/delete/1
+
+###
+PUT http://localhost:8088/api/users/addToCart/1
+Content-Type: application/json
+
+{
+  "email": "manoj@gmail.com"
+}
+
+###
+PUT http://localhost:8088/api/users/removeToCart/1
+Content-Type: application/json
+
+{
+  "email": "manoj@gmail.com"
+}
+
+###
+PUT http://localhost:8088/api/users/purchase
+Content-Type: application/json
+
+{
+  "email":"manoj@gmail.com",
+  "medicineId": 1,
+  "quantity": 1,
+  "totalAmount": 300.0
+
+}
+
+###
+PUT http://localhost:8088/api/users/purchases
+Content-Type: application/json
+
+{
+  "email": "manoj@gmail.com",
+  "purchases": [
+  {
+    "medicineId": 1,
+    "quantity": 1,
+    "totalAmount": 300.0
+  },{
+    "medicineId": 1,
+    "quantity": 2,
+    "totalAmount": 600.0
+  }
+  ]
+}
