@@ -11,6 +11,11 @@ import {AdminModule} from "./admin/admin.module";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderInterceptor} from "./interceptor/header.interceptor";
+import {JwtModule} from "@auth0/angular-jwt"
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import {HeaderInterceptor} from "./interceptor/header.interceptor";
     UserModule,
     AdminModule,
     BrowserAnimationsModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter
+      }
+    })
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]
