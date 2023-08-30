@@ -12,6 +12,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderInterceptor} from "./interceptor/header.interceptor";
 import {JwtModule} from "@auth0/angular-jwt"
+import { GuardsCheckEnd } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -37,7 +39,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true},{provide:GuardsCheckEnd,useClass:AuthGuard}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

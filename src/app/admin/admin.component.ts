@@ -11,7 +11,7 @@ import { Route, Router } from '@angular/router';
 export class AdminComponent implements OnInit {
 
   constructor(private adminService:AdminService, private router:Router) {
-    if(!this.adminService.checkJWT()) this.router.navigate(["auth/adminLogin"],{ queryParams: { expired: 'true' } })
+    // if(!this.adminService.checkJWT()) this.router.navigate(["auth/adminLogin"],{ queryParams: { expired: 'true' } })
   }
 
   ngOnInit(): void {

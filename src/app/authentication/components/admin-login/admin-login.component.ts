@@ -28,6 +28,14 @@ export class AdminLoginComponent implements OnInit {
         this.errMsg = "";
       }, 5000)
       }
+    },(err)=>{
+      this.isError = true;
+        this.errMsg = err.message;
+        ;
+      setTimeout(() => {
+        this.isError = false;
+        this.errMsg = "";
+      }, 5000)
     });
   }
 

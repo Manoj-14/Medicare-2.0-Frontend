@@ -15,6 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from "@angular/material/button";
 import {UpdateMedicineComponent} from './components/medicine/update-medicine/update-medicine.component';
 import {MatInputModule} from "@angular/material/input";
+import { AdminRouterModule } from './admin-router.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatInputModule} from "@angular/material/input";
     FormsModule,
     MatDialogModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    AdminRouterModule
   ],
 })
 export class AdminModule {
