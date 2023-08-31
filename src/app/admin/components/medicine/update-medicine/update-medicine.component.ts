@@ -29,7 +29,6 @@ export class UpdateMedicineComponent implements OnInit {
 
   updateMedicine() {
     this.dialogRef.close({success: true});
-    this.medicine.image.content = "";
     this.medicineService.update(this.medicine).subscribe((res) => {
       this.dialogRef.close({success: true});
     })

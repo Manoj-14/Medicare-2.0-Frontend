@@ -32,9 +32,6 @@ export class MedicineComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.medicine?.image?.content) {
-      this.imageURL = this.sanitizer.bypassSecurityTrustUrl(this.medicine.image.content);
-    }
   }
 
   getImageSrc(image) {

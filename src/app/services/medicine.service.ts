@@ -16,15 +16,7 @@ export class MedicineService {
   }
 
   getMedicines() {
-    return this.httpClient.get(`${this.url}`).pipe(
-      map((medicines: Medicine[]) => {
-        medicines.forEach((medicine) => {
-          medicine.image.content = 'data:' + medicine.image.contentType + ';base64,' + medicine.image.content;
-          medicine.image.safeURL = this.sanitizer.bypassSecurityTrustUrl(this.getImageSrc(medicine.image.content));
-        })
-        return medicines;
-      })
-    )
+    return this.httpClient.get(`${this.url}`);
   }
 
   getMedicineById(id: number) {
