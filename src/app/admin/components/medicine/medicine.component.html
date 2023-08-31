@@ -7,32 +7,16 @@
           <small class="text-sm-start">{{medicine.seller}}</small>
         </div>
         <div class="form-check form-switch">
-          <input
-            (click)="activeBtn()"
-            [(ngModel)]="medicine.active"
-            [checked]="medicine.active"
-            class="form-check-input"
-            id="{{ medicine.id }}"
-            type="checkbox"
-          />
-          <label
-            *ngIf="medicine.active"
-            class="custom-control-label"
-            for="{{ medicine.id }}"
-          >Enabled</label
-          >
-          <label
-            *ngIf="!medicine.active"
-            class="custom-control-label"
-            for="{{ medicine.id }}"
-          >Disabled</label
-          >
+          <input (click)="activeBtn()" [(ngModel)]="medicine.active" [checked]="medicine.active"
+            class="form-check-input" id="{{ medicine.id }}" type="checkbox" />
+          <label *ngIf="medicine.active" class="custom-control-label" for="{{ medicine.id }}">Enabled</label>
+          <label *ngIf="!medicine.active" class="custom-control-label" for="{{ medicine.id }}">Disabled</label>
         </div>
       </div>
     </div>
     <div (click)="viewMed()" class="card-body medicine-image-div">
       <div>
-        <img [alt]="medicine.name" [src]="medicine.image.content" class="card-img-top medicine-image" srcset="">
+        <img [alt]="medicine.name" [src]="medicine.image" class="card-img-top medicine-image" srcset="">
       </div>
       <div>
         <i>{{medicine.price | currency : "USD"}}</i>

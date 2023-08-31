@@ -8,12 +8,5 @@ export interface Medicine {
   seller: string;
   description: string;
   active: boolean;
-  image: Image;
-}
-
-export interface Image {
-  fileName: string;
-  contentType: string;
-  content: string;
-  safeURL?: SafeUrl
+  image: string;
 }

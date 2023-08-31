@@ -55,7 +55,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8088/api/medicines
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5vakBnbWFpbC5jb20iLCJpYXQiOjE2OTM0MDI4ODIsImV4cCI6MTY5MzQzODg4Mn0.-kTIlQOHJbHGhGzOCQjS7Crd1bGcp1zniUDOByen8n4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW51bWFkaHUxNDI1QGdtYWlsLmNvbSIsImlhdCI6MTY5MzQ2MDY2OCwiZXhwIjoxNjkzNDk2NjY4fQ.VUSYaZqp5ZIOOEgFeUIp9GeRYiUJ5C2hTs3R9bNd9OY
 
 ###
 POST http://localhost:8088/api/medicines/create
