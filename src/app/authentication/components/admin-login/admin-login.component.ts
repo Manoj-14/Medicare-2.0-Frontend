@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Admin} from "../../../entities/admin";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AdminService} from "../../../admin/services/admin.service";
 
 @Component({
@@ -14,10 +14,29 @@ export class AdminLoginComponent implements OnInit {
   isError: boolean = false;
   errMsg: string = "";
 
-  constructor(private adminService: AdminService, private router: Router) {
+  constructor(private adminService: AdminService, private router: Router, private route:ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['expired'] === 'true') {
+        this.isError = true;
+        this.errMsg = "Login had expired please login again";
+      setTimeout(() => {
+        this.isError = false;
+        this.errMsg = "";
+      }, 5000)
+      }
+    },(err)=>{
+      this.isError = true;
+        this.errMsg = err.message;
+        ;
+      setTimeout(() => {
+        this.isError = false;
+        this.errMsg = "";
+      }, 5000)
+    });
   }
 
   onAdminLogin(admin: Admin, f: NgForm) {

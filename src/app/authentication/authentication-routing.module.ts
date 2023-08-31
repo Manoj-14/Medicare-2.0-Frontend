@@ -6,15 +6,11 @@ import {AdminLoginComponent} from "./components/admin-login/admin-login.componen
 import {UserSignupComponent} from "./components/user-signup/user-signup.component";
 import {UserLoginComponent} from "./components/user-login/user-login.component";
 
-const routes: Routes = [{
-  path: "auth",
-  component: AuthenticationComponent,
-  children: [
+const routes: Routes = [
     {path: "adminLogin", component: AdminLoginComponent},
     {path: "userSignup", component: UserSignupComponent},
     {path: "userLogin", component: UserLoginComponent}
   ]
-}]
 
 @NgModule({
   declarations: [],

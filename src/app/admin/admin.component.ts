@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {isNull} from "@angular/compiler/src/output/output_ast";
+import { AdminService } from './services/admin.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +10,8 @@ import {isNull} from "@angular/compiler/src/output/output_ast";
 })
 export class AdminComponent implements OnInit {
 
-  constructor() {
+  constructor(private adminService:AdminService, private router:Router) {
+    // if(!this.adminService.checkJWT()) this.router.navigate(["auth/adminLogin"],{ queryParams: { expired: 'true' } })
   }
 
   ngOnInit(): void {

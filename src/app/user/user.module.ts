@@ -7,6 +7,7 @@ import {UserHomeComponent} from './components/user-home/user-home.component';
 import { UserCartComponent } from './components/user-cart/user-cart.component';
 import { UserHistoryComponent } from './components/user-history/user-history.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserRouterModule } from './user-router.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    UserRouterModule
   ]
 })
 export class UserModule {

@@ -14,6 +14,7 @@ export class ManageMedicineComponent implements OnInit {
   medicines: Medicine[];
 
   constructor(private readonly medicineService: MedicineService, private dialog: MatDialog) {
+    
     this.fetchMedicine();
   }
 

@@ -8,6 +8,7 @@ import {UserLoginComponent} from './components/user-login/user-login.component';
 import {FormsModule} from "@angular/forms";
 import {UserModule} from "../user/user.module";
 import {AdminModule} from "../admin/admin.module";
+import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {AdminModule} from "../admin/admin.module";
     RouterModule,
     FormsModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    AuthenticationRoutingModule
   ]
 })
 export class AuthenticationModule {

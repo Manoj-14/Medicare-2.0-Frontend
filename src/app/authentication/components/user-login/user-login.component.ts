@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {User} from "../../../entities/user";
 import {UserService} from "../../../user/services/user.service";
+import {AuthenticateService} from "../../../services/authenticate.service";
 
 @Component({
   selector: 'app-user-login',
@@ -12,17 +13,20 @@ export class UserLoginComponent implements OnInit {
 
   isError: boolean = false;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private authenticationService: AuthenticateService) {
   }
 
   ngOnInit(): void {
   }
 
   onUserLogin(user: User, f: NgForm) {
-    this.userService.authenticate(user.email, user.password).subscribe((dbUser) => {
-      console.log(dbUser);
+    this.authenticationService.login({email: user.email, password: user.password}).subscribe((data: {
+      token: string
+    }) => {
+      localStorage.setItem("token", data.token)
+      console.log(localStorage.getItem("token"))
     }, (error) => {
-      console.log(error.error.message);
+      console.log(error);
     })
   }
 
