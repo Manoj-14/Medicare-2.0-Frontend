@@ -14,6 +14,11 @@ import {HeaderInterceptor} from "./interceptor/header.interceptor";
 import {JwtModule} from "@auth0/angular-jwt"
 import { GuardsCheckEnd } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { MedicineEffects } from './state/medicine.effects';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -37,7 +42,10 @@ export function tokenGetter() {
       config:{
         tokenGetter
       }
-    })
+    }),
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true},{provide:GuardsCheckEnd,useClass:AuthGuard}],
   bootstrap: [AppComponent]
