@@ -16,6 +16,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {UpdateMedicineComponent} from './components/medicine/update-medicine/update-medicine.component';
 import {MatInputModule} from "@angular/material/input";
 import { AdminRouterModule } from './admin-router.module';
+import { EffectsModule } from '@ngrx/effects';
+import { MedicineEffects } from '../state/medicine.effects';
+import { StoreModule } from '@ngrx/store';
+import { medicineReducer } from '../state/medicine.reducers';
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import { AdminRouterModule } from './admin-router.module';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-    AdminRouterModule
+    AdminRouterModule,
+    StoreModule.forFeature('medicineState',medicineReducer),
+    EffectsModule.forFeature([MedicineEffects])
   ],
 })
 export class AdminModule {
