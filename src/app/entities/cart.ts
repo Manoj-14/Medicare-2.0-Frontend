@@ -1,8 +1,8 @@
-import {Medicine} from "./medicine";
+import { Medicine } from './medicine';
 
 export interface Cart {
-  id?:number;
-  medicine:Medicine;
-  quantity:number;
-  amount?:number;
+  id?: number;
+  medicines: Medicine;
+  quantity: number;
+  amount?: number;
 }

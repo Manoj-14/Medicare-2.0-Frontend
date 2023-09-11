@@ -55,7 +55,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8088/api/medicines
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW51bWFkaHUxNDI1QGdtYWlsLmNvbSIsImlhdCI6MTY5MzQ2MDY2OCwiZXhwIjoxNjkzNDk2NjY4fQ.VUSYaZqp5ZIOOEgFeUIp9GeRYiUJ5C2hTs3R9bNd9OY
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW51bWFkaHUxNDI1QGdtYWlsLmNvbSIsImlhdCI6MTY5NDQzODk1MiwiZXhwIjoxNjk0NDc0OTUyfQ._4fDvH8DVFvtOE8HeTG-Zhvcrud8MOsEm54wyJnzU1Q
 
 ###
 POST http://localhost:8088/api/medicines/create
@@ -140,3 +140,7 @@ Content-Type: application/json
   }
   ]
 }
+
+###
+GET http://localhost:8088/api/users/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW51bWFkaHUxNDI1QGdtYWlsLmNvbSIsImlhdCI6MTY5NDQzODk1MiwiZXhwIjoxNjk0NDc0OTUyfQ._4fDvH8DVFvtOE8HeTG-Zhvcrud8MOsEm54wyJnzU1Q

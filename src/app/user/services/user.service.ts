@@ -57,4 +57,8 @@ export class UserService {
   getUsers() {
     return this.httpClient.get(`${this.url}/`);
   }
+
+  getCart() {
+    return this.httpClient.get(`${this.url}/cart`);
+  }
 }
