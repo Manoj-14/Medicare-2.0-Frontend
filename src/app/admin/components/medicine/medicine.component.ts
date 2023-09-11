@@ -81,7 +81,7 @@ export class MedicineComponent implements OnInit, OnChanges {
 
   activeBtn() {
     this.medicineService.enableOrDisable(this.medicine.id).subscribe((res) => {
-      console.log(res);
+      
     })
   }
 }

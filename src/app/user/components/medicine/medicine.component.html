@@ -1,0 +1,28 @@
+<div class="card medicine-card">
+    <div>
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h3 class="card-title">{{medicine.name | uppercase}}</h3>
+                    <small class="text-sm-start">{{medicine.seller}}</small>
+                </div>
+            </div>
+        </div>
+        <div (click)="viewMed()" class="card-body medicine-image-div">
+            <div>
+                <img [alt]="medicine.name" [src]="medicine.image" class="card-img-top medicine-image" srcset="">
+            </div>
+            <div>
+                <i>{{medicine.price | currency : "USD"}}</i>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button (click)="buyNow()" class="card-link btn btn-outline-primary ">
+            <i class="icon bx bx-buy"></i>Buy Now
+        </button>
+        <button (click)="addToCart()" class="card-link btn btn-outline-info">
+            <i class="icon bx bx-cart"></i>Add to cart
+        </button>
+    </div>
+</div>
