@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Trirong:wght@300;400;500;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Trirong:wght@300;400;500;700;800&display=swap");
 
 :root {
   --transition: all 0.2s ease;
@@ -10,7 +10,7 @@
   --background-white: #f6f5ff;
   --background-light-blue: #e4e9f7;
   --alert-red: rgba(234, 68, 68, 0.94);
-  --alert-green: #32FF32;
+  --alert-green: #32ff32;
   --color-gary: #707070;
   --admin-bg: #ffc107;
 }
@@ -67,7 +67,8 @@ form .ng-touched.ng-invalid.content + small {
   color: var(--color-gary);
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
