@@ -10,6 +10,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { UserRouterModule } from './user-router.module';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { FormsModule } from '@angular/forms';
+import { PurchaseComponent } from '../user/components/user-home/purchase/purchase.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     UserHistoryComponent,
     UserProfileComponent,
     MedicineComponent,
+    PurchaseComponent,
   ],
   imports: [CommonModule, RouterModule, UserRouterModule, FormsModule],
 })

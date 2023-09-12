@@ -20,8 +20,12 @@ export class HeaderInterceptor implements HttpInterceptor {
       : '';
     if (
       request.url.includes('api/medicines') ||
-      request.url.includes('api/users') ||
-      request.url.includes('api/admin')
+      (request.url.includes('api/users') &&
+        !request.url.includes('api/users/authenticate') &&
+        !request.url.includes('api/users/create')) ||
+      (request.url.includes('api/admin') &&
+        !request.url.includes('api/admin/authenticate') &&
+        !request.url.includes('api/admin/create'))
     ) {
       return next.handle(request.clone({ setHeaders: { authorization } }));
     }

@@ -20,7 +20,6 @@ export class UserCartComponent implements OnInit {
 
   fetchCart() {
     this.userService.getCart().subscribe((cart: Cart[]) => {
-      console.log(cart);
       this.cartMedicines = cart;
     });
   }

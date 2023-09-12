@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../../entities/user';
 import { UserService } from '../../../user/services/user.service';
 import { AuthenticateService } from '../../../services/authenticate.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -12,14 +12,37 @@ import { Router } from '@angular/router';
 })
 export class UserLoginComponent implements OnInit {
   isError: boolean = false;
+  errMsg: string = '';
 
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticateService,
-    private route: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(
+      (params) => {
+        if (params['expired'] === 'true') {
+          this.isError = true;
+          this.errMsg = 'Login had expired please login again';
+          setTimeout(() => {
+            this.isError = false;
+            this.errMsg = '';
+          }, 5000);
+        }
+      },
+      (err) => {
+        this.isError = true;
+        this.errMsg = err.message;
+        setTimeout(() => {
+          this.isError = false;
+          this.errMsg = '';
+        }, 5000);
+      }
+    );
+  }
 
   onUserLogin(user: User, f: NgForm) {
     this.authenticationService
@@ -28,7 +51,7 @@ export class UserLoginComponent implements OnInit {
         (data: { token: string }) => {
           localStorage.setItem('token', data.token);
           localStorage.setItem('userEmail', user.email);
-          this.route.navigate(['/user/home']);
+          this.router.navigate(['/user/home']);
         },
         (error) => {
           this.isError = true;

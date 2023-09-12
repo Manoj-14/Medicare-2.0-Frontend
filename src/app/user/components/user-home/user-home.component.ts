@@ -18,9 +18,7 @@ export class UserHomeComponent implements OnInit {
     this.fetchMedicines();
   }
 
-  ngOnInit(): void {
-    console.log(this.jwtService.decode(localStorage.getItem('token')));
-  }
+  ngOnInit(): void {}
 
   fetchMedicines() {
     this.medicineService.getMedicines().subscribe((dbMedicines: Medicine[]) => {
