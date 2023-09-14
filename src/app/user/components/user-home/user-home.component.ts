@@ -25,4 +25,8 @@ export class UserHomeComponent implements OnInit {
       this.medicines = dbMedicines;
     });
   }
+
+  updated() {
+    this.fetchMedicines();
+  }
 }

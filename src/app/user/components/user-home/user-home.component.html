@@ -1,5 +1,5 @@
 <div class="root-component">
   <div *ngFor="let dbMedicine of medicines" class="mt-2 col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-    <app-medicine [medicine]="dbMedicine"></app-medicine>
+    <app-medicine [medicine]="dbMedicine" (update)="updated()" [userHome]="true"></app-medicine>
   </div>
 </div>

@@ -23,4 +23,8 @@ export class UserCartComponent implements OnInit {
       this.cartMedicines = cart;
     });
   }
+
+  updated() {
+    this.fetchCart();
+  }
 }

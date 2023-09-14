@@ -17,11 +17,33 @@
             </div>
         </div>
     </div>
-    <div class="card-footer">
+    <div class="card-footer" *ngIf="userHome">
         <button (click)="buyNow()" class="card-link btn btn-outline-primary ">
             <i class="icon bx bx-buy"></i>Buy Now
         </button>
         <button (click)="addToCart()" class="card-link btn btn-outline-info">
+            <i class="icon bx bx-cart"></i>Add to cart
+        </button>
+    </div>
+    <div class="card-footer" *ngIf="userCart" class="d-flex justify-content-between">
+        <button (click)="rmMedicineFromCart()" class="card-link btn btn-outline-danger">
+            <i class="icon bx bx-cart"></i>Remove
+        </button>
+        <div class="counter" class="d-flex justify-content-around align-items-center">
+            <button (click)="rmFromCart()" class="card-link btn btn-outline-danger">
+                <i class="icon bx" [class]="{'bx-minus':cart.quantity>1,'bx-bin':cart.quantity<=1}"></i>
+            </button>
+            <input type="number" readonly [value]="cart.quantity" class="w-25 text-center outline-none">
+            <button (click)="addToCart()" class="card-link btn btn-outline-success">
+                <i class="icon bx bx-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-footer" *ngIf="userHistory">
+        <button (click)="buyNow()" class="card-link btn btn-outline-danger">
+            <i class="icon bx bx-buy"></i>Buy Now
+        </button>
+        <button (click)="addToCart()" class="card-link btn btn-outline-success">
             <i class="icon bx bx-cart"></i>Add to cart
         </button>
     </div>

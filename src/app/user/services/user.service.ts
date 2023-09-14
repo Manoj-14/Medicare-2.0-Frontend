@@ -37,9 +37,18 @@ export class UserService {
   }
 
   removeFromCart(medicineId: number, email: string) {
-    return this.httpClient.put(`${this.url}/users/removeToCart/${medicineId}`, {
+    return this.httpClient.put(`${this.url}/removeToCart/${medicineId}`, {
       email: email,
     });
+  }
+
+  removeMedicineFromCart(medicineId: number, email: string) {
+    return this.httpClient.put(
+      `${this.url}/removeMedicineFromCart/${medicineId}`,
+      {
+        email: email,
+      }
+    );
   }
 
   purchaseMedicine(

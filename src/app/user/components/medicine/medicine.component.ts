@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Medicine } from 'src/app/entities/medicine';
 import { UserService } from '../../services/user.service';
+import { Cart } from 'src/app/entities/cart';
 
 @Component({
   selector: 'app-medicine',
@@ -14,6 +15,16 @@ export class MedicineComponent implements OnInit {
   @Output()
   update = new EventEmitter<{ updated: boolean }>();
 
+  @Input()
+  cart?: Cart;
+
+  @Input()
+  userHome: boolean;
+  @Input()
+  userCart: boolean;
+  @Input()
+  userHistory: boolean;
+
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
@@ -23,12 +34,39 @@ export class MedicineComponent implements OnInit {
   }
 
   addToCart() {
-    console.log('Adding to cart......');
     this.userService
       .addToCart(this.medicine.id, localStorage.getItem('userEmail'))
       .subscribe(
         (data) => {
-          console.log(data);
+          this.update.emit({ updated: true });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+  rmFromCart() {
+    this.userService
+      .removeFromCart(this.medicine.id, localStorage.getItem('userEmail'))
+      .subscribe(
+        (data) => {
+          this.update.emit({ updated: true });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+  rmMedicineFromCart() {
+    this.userService
+      .removeMedicineFromCart(
+        this.medicine.id,
+        localStorage.getItem('userEmail')
+      )
+      .subscribe(
+        (data) => {
+          this.update.emit({ updated: true });
         },
         (err) => {
           console.log(err);
