@@ -1,1 +1,34 @@
-<p>purchase works!</p>
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Purchase</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Order Date</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{medicine.name}}</td>
+                            <td>{{medicine.price}}</td>
+                            <td>quantity</td>
+                            <td>total</td>
+                            <td>Order Date</td>
+                            <td>Order Status</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" (click)="buyNow()" class="btn btn-primary">Buy now</button>
+            </div>
+        </div>
+    </div>
+</div>

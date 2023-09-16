@@ -112,13 +112,14 @@ Content-Type: application/json
 
 ###
 PUT http://localhost:8088/api/users/purchase
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5vakBnbWFpbC5jb20iLCJpYXQiOjE2OTQ4NDQyMTMsImV4cCI6MTY5NDg4MDIxM30.oC_5a413yrO-qA56Ed4Yei9t-_ThSUvSi8a7qycZ-1A
 Content-Type: application/json
 
 {
   "email":"manoj@gmail.com",
   "medicineId": 1,
   "quantity": 1,
-  "totalAmount": 300.0
+  "totalAmount": 300
 
 }
 

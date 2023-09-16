@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Medicine } from 'src/app/entities/medicine';
 import { UserService } from '../../services/user.service';
 import { Cart } from 'src/app/entities/cart';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PurchaseComponent } from '../user-home/purchase/purchase.component';
+import { NgDialogAnimationService } from 'src/app/services/my-animation.service';
+import { Purchase } from 'src/app/entities/purchase';
 
 @Component({
   selector: 'app-medicine',
@@ -19,13 +23,20 @@ export class MedicineComponent implements OnInit {
   cart?: Cart;
 
   @Input()
+  purchase?: Purchase;
+
+  @Input()
   userHome: boolean;
   @Input()
   userCart: boolean;
   @Input()
   userHistory: boolean;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private dialog: NgDialogAnimationService,
+    private matDialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
@@ -75,6 +86,14 @@ export class MedicineComponent implements OnInit {
   }
 
   buyNow() {
-    throw new Error('Method not implemented.');
+    this.dialog.open(PurchaseComponent, {
+      direction: 'ltr',
+      animation: { to: 'left' },
+      position: { rowEnd: '0' },
+      data: this.medicine,
+    });
+    this.matDialog.afterAllClosed.subscribe(() => {
+      this.update.emit({ updated: true });
+    });
   }
 }

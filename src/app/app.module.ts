@@ -16,13 +16,14 @@ import { GuardsCheckEnd } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { LoaderComponent } from './utils/loader/loader.component';
 import { LoaderInterceptor } from './interceptor/loader.interceptor';
+import { AlertComponent } from './utils/alert/alert.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, LoaderComponent],
+  declarations: [AppComponent, PageNotFoundComponent, LoaderComponent, AlertComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

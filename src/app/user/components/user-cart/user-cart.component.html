@@ -1,5 +1,10 @@
 <div class="root-component">
-  <div *ngFor="let cart of cartMedicines" class="mt-2 col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-    <app-medicine [medicine]="cart.medicines" [cart]="cart" (update)="updated()" [userCart]="true"></app-medicine>
+  <div class="row m-0 mt-2">
+    <div *ngFor="let cart of cartMedicines" class="mt-2 col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+      <app-medicine [medicine]="cart.medicines" [cart]="cart" (update)="updated()" [userCart]="true"></app-medicine>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <button type="button" class="btn btn-primary ">Buy All </button>
   </div>
 </div>
