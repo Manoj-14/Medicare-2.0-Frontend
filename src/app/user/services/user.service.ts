@@ -52,13 +52,8 @@ export class UserService {
     );
   }
 
-  purchaseMedicine(
-    email: string,
-    medicineId: number,
-    quantity: number,
-    totalAmount: number
-  ) {
-    const request = { email, medicineId, quantity, totalAmount };
+  purchaseMedicine(medicineId: number, quantity: number, totalAmount: number) {
+    const request = { medicineId, quantity, totalAmount };
     return this.httpClient.put(`${this.url}/purchase`, request);
   }
 
@@ -82,5 +77,9 @@ export class UserService {
 
   addPhone(phone: number) {
     return this.httpClient.put(`${this.url}/phone`, phone);
+  }
+
+  getPurchases() {
+    return this.httpClient.get(`${this.url}/purchases`);
   }
 }
