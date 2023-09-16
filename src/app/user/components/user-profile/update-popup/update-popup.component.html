@@ -1,0 +1,70 @@
+<div *ngIf="isError || isSuccess" [class]='{"alert-danger":isError,"alert-success":isSuccess}'
+    class="alert alert-dismissible fade show text-center d-absolute" role="alert">
+    {{errMsg}}
+</div>
+<div *ngIf='updateAddress'>
+    <h3 class="text-primary text-center">Update Address</h3>
+    <form [formGroup]="addressForm" (ngSubmit)="addAddress()">
+        <label class="form-label" for="street">Street<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="street" name="street" formControlName="street" required type="text" />
+        </div>
+        <label class="form-label" for="city">City<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="city" name="city" formControlName="city" required type="text" />
+        </div>
+        <label class="form-label" for="state">State<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="state" name="state" formControlName="state" required type="text" />
+        </div>
+        <label class="form-label" for="postalCode">Pincode<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="postalCode" name="postalCode" formControlName="postalCode" required
+                type="text" />
+        </div>
+        <div class="d-flex w-100 justify-content-evenly">
+            <button class="btn btn-primary w-100 add-medicine-btn" [disabled]="!addressForm.valid" type="submit">
+                Update Address
+            </button>
+        </div>
+    </form>
+</div>
+<div *ngIf='updatePassword'>
+    <h3 class="text-primary text-center">Change Password</h3>
+    <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <label class="form-label" for="currentPassword">Current Password<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="currentPassword" name="currentPassword" formControlName="currentPassword"
+                required type="password" />
+        </div>
+        <label class="form-label" for="newPassword">New Password<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="newPassword" name="newPassword" formControlName="newPassword" required
+                type="password" />
+        </div>
+        <label class="form-label" for="confirmPassword">Confirm New Password<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword"
+                required type="password" />
+        </div>
+        <div class="d-flex w-100 justify-content-evenly">
+            <button class="btn btn-primary w-100 add-medicine-btn" [disabled]="!passwordForm.valid" type="submit">
+                Change Password
+            </button>
+        </div>
+    </form>
+</div>
+<div *ngIf='updatePhone'>
+    <h3 class="text-primary text-center">Add Phone Number</h3>
+    <form [formGroup]="phoneForm" (ngSubmit)="addPhone()">
+        <label class="form-label" for="phone">Phone number<span class="required">*</span></label>
+        <div class="form-outline mb-2">
+            <input class="form-control" id="phone" name="phone" formControlName="phone" required type="number" />
+        </div>
+        <div class="d-flex w-100 justify-content-evenly">
+            <button class="btn btn-primary w-100 add-medicine-btn" [disabled]="!phoneForm.valid" type="submit">
+                Add Phone
+            </button>
+        </div>
+    </form>
+</div>

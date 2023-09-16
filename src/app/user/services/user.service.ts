@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../entities/user';
 import { environment } from '../../../environments/environment';
+import { Address } from '../../entities/user';
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +24,8 @@ export class UserService {
     });
   }
 
-  changePassword(id: number, oldPassword: string, newPassword) {
-    return this.httpClient.put(`${this.url}/changePassword/${id}`, {
+  changePassword(oldPassword: string, newPassword: string) {
+    return this.httpClient.put(`${this.url}/changePassword`, {
       oldPassword: oldPassword,
       newPassword: newPassword,
     });
@@ -69,5 +70,17 @@ export class UserService {
 
   getCart() {
     return this.httpClient.get(`${this.url}/cart`);
+  }
+
+  getProfile() {
+    return this.httpClient.get(`${this.url}/profile`);
+  }
+
+  updateAddress(address: any) {
+    return this.httpClient.put(`${this.url}/address`, address);
+  }
+
+  addPhone(phone: number) {
+    return this.httpClient.put(`${this.url}/phone`, phone);
   }
 }

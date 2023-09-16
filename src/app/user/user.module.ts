@@ -9,8 +9,9 @@ import { UserHistoryComponent } from './components/user-history/user-history.com
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UserRouterModule } from './user-router.module';
 import { MedicineComponent } from './components/medicine/medicine.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PurchaseComponent } from '../user/components/user-home/purchase/purchase.component';
+import { UpdatePopupComponent } from '../user/components/user-profile/update-popup/update-popup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,14 @@ import { PurchaseComponent } from '../user/components/user-home/purchase/purchas
     UserProfileComponent,
     MedicineComponent,
     PurchaseComponent,
+    UpdatePopupComponent,
   ],
-  imports: [CommonModule, RouterModule, UserRouterModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    UserRouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class UserModule {}

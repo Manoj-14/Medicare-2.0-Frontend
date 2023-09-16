@@ -3,7 +3,7 @@
     <div class="image-text">
       <div class="text logo-text">
         <span class="name">
-          Manoj M
+          {{user.name}}
         </span>
       </div>
     </div>
@@ -19,24 +19,21 @@
       </li>
 
       <ul class="menu-links">
-        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
-            routerLinkActive="route-active">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link" routerLinkActive="route-active">
           <a routerLink="/user/home">
             <i class='bx bxs-home icon'></i>
             <span class="text nav-text">Home</span>
           </a>
         </li>
 
-        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
-            routerLinkActive="route-active">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link" routerLinkActive="route-active">
           <a routerLink="/user/cart">
             <i class='bx bxs-cart icon'></i>
             <span class="text nav-text">Cart</span>
           </a>
         </li>
 
-        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
-            routerLinkActive="route-active">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link" routerLinkActive="route-active">
           <a routerLink="/user/history">
             <i class='bx bx-history icon'></i>
             <span class="text nav-text">Purchase History</span>
@@ -44,8 +41,7 @@
         </li>
 
 
-        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link"
-            routerLinkActive="route-active">
+        <li [routerLinkActiveOptions]="{ exact: true }" class="nav-link" routerLinkActive="route-active">
           <a routerLink="/user/profile">
             <i class='bx bx-user icon'></i>
             <span class="text nav-text">Profile</span>
