@@ -1,0 +1,9 @@
+#search-bar {
+  width: 50%;
+  transition: width 500ms ease-in-out;
+  border: 3px solid var(--blue);
+}
+
+#search-bar:focus {
+  width: 100%;
+}

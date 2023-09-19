@@ -23,7 +23,12 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, LoaderComponent, AlertComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    LoaderComponent,
+    AlertComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
