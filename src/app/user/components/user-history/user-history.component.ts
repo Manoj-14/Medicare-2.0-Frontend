@@ -31,4 +31,19 @@ export class UserHistoryComponent implements OnInit {
   updated() {
     this.fetchPurchase();
   }
+
+  sortPurchases() {
+    const purchases = this.purchases;
+    for (let i = 0; i < purchases.length; i++) {
+      for (let j = 0; j < purchases.length; j++) {
+        if (purchases[i].date < purchases[j].date) {
+          const temp = purchases[i];
+          purchases[i] = purchases[j];
+          purchases[j] = temp;
+        }
+      }
+    }
+
+    console.log('sorted', purchases);
+  }
 }

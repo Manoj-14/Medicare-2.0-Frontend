@@ -78,4 +78,6 @@ export class UserHomeComponent implements OnInit {
       this.fetchMedicines();
     }
   }
+
+  filterMedicine() {}
 }

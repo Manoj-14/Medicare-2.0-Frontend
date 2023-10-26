@@ -1,4 +1,5 @@
 <div class="root-component">
+  <button (click)="sortPurchases()">Sort</button>
   <div class="row m-0 mt-2">
     <div *ngFor="let purchase of purchases" class="mt-2 col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
       <app-medicine [medicine]="purchase.medicine" [purchase]="purchase" (update)="updated()"

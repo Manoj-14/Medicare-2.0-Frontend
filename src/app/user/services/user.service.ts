@@ -57,7 +57,9 @@ export class UserService {
     return this.httpClient.put(`${this.url}/purchase`, request);
   }
 
-  purchaseFromCart(email: string, purchases) {}
+  purchaseFromCart(purchases: any) {
+    return this.httpClient.put(`${this.url}/purchases`, purchases);
+  }
 
   getUsers() {
     return this.httpClient.get(`${this.url}/`);

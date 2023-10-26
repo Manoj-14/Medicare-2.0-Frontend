@@ -1,10 +1,12 @@
 <div class="root-component">
-  <div class="m-4 position-relative">
+  <div class="m-4">
+    <label class="form-label form-check-inline" for="search-bar"><i class=" bx bx-search"></i></label>
     <input class="form-control" id="search-bar" [(ngModel)]="searchText" (ngModelChange)="searchBar()"
       placeholder="Search Medicines" />
     <button class="btn btn-primary" (click)="sortMedicines(sorted)">Sort<i *ngIf="clickedSorted" class="bx text-white"
         [class]="{'bx-arrow-to-top':sorted,'bx-arrow-to-bottom':!sorted}"></i></button>
-    <i class="bx bx-search position-absolute top-0 end-0 h-100"></i>
+    <button class="btn btn-primary" (click)="filterMedicine()">Filter
+      <i class="bx bx-filter text-white"></i></button>
   </div>
   <div class="row m-0 mt-2">
     <div *ngFor="let dbMedicine of medicines" class="mt-2 col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
